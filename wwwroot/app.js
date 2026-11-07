@@ -11,7 +11,6 @@ async function loadProfile() {
   const res = await fetch("/api/profile");
   const p = await res.json();
   document.title = `${p.name} | ${p.role}`;
-  $("#logo").textContent = p.name;
   $("#name").textContent = p.name;
   $("#photo").alt = p.name;
   $("#role").textContent = p.role;
