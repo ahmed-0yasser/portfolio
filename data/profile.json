@@ -5,7 +5,7 @@
   "about": [
     "I'm Ahmed, a Frontend Developer from Egypt with strong knowledge of modern web development technologies. I build responsive user interfaces with HTML, CSS, JavaScript and React.js, and I care a lot about clean design, high performance and a smooth user experience.",
     "I graduated in Management Information Systems in 2024 with a Very Good grade, then joined an intensive Frontend Development training at EraaSoft. There I built multiple real-world projects and worked in a team of 6 developers, where I acted as Team Leader, organizing tasks and coordinating the work with Git and GitHub.",
-    "Today I'm expanding into back-end development with Node.js and Express. This website is an example: its front-end and its API are both built by me. I'm looking for a Frontend or Junior Full-Stack role where I can keep learning and build products people enjoy using."
+    "On the back-end side I studied .NET and build Web APIs with C# and ASP.NET Core. This website is an example: its front-end and its API are both built by me. I'm looking for a Frontend or Junior Full-Stack (.NET) role where I can keep learning and build products people enjoy using."
   ],
   "facts": [
     {
@@ -47,8 +47,10 @@
     {
       "group": "Back-End",
       "items": [
-        "Node.js",
-        "Express",
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "Web API",
         "REST APIs",
         "JSON"
       ]
@@ -152,17 +154,17 @@
     },
     {
       "title": "Portfolio Website + API",
-      "description": "This website. Front-end and back-end are both built by me.",
+      "description": "This website. The front-end and the ASP.NET Core back-end are both built by me.",
       "features": [
-        "Express REST API that serves the profile and projects",
-        "Contact form that validates and saves messages",
-        "Rate limiting and a protected endpoint to read messages",
-        "Dark / light mode and project filters"
+        "ASP.NET Core Web API with Controllers, Services and dependency injection",
+        "Contact form with server-side validation that saves messages",
+        "Built-in rate limiting and a protected endpoint to read messages",
+        "Dark / light mode and project filters on the front-end"
       ],
       "tags": [
-        "Node.js",
-        "Express",
-        "REST API",
+        "C#",
+        "ASP.NET Core",
+        "Web API",
         "JavaScript"
       ],
       "category": "backend",

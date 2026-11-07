@@ -1,4 +1,6 @@
-node_modules
+bin/
+obj/
 data/messages.json
 ahmed_original.jpg
-.claude
+.claude/
+.vs/

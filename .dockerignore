@@ -1,0 +1,5 @@
+bin/
+obj/
+.git/
+data/messages.json
+ahmed_original.jpg
