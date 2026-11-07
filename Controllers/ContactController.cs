@@ -23,8 +23,18 @@ public class ContactController(MessageService messages, IConfiguration config) :
     [HttpGet("messages")]
     public async Task<IActionResult> GetAll([FromHeader(Name = "x-admin-key")] string? key)
     {
-        var adminKey = config["ADMIN_KEY"] ?? "change-me";
-        if (key != adminKey) return Unauthorized(new { error = "Unauthorized" });
-        return Ok(await messages.GetAllAsync());
+        if (!IsAdmin(key)) return Unauthorized(new { error = "Unauthorized" });
+        var all = await messages.GetAllAsync();
+        return Ok(all.OrderByDescending(m => m.CreatedAt));
     }
+
+    [HttpDelete("messages/{id:long}")]
+    public async Task<IActionResult> Delete(long id, [FromHeader(Name = "x-admin-key")] string? key)
+    {
+        if (!IsAdmin(key)) return Unauthorized(new { error = "Unauthorized" });
+        return await messages.DeleteAsync(id) ? NoContent() : NotFound(new { error = "Not found" });
+    }
+
+    private bool IsAdmin(string? key) =>
+        !string.IsNullOrEmpty(key) && key == (config["ADMIN_KEY"] ?? "change-me");
 }

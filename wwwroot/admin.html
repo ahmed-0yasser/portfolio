@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Messages</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=4">
+  <style>
+    .admin { max-width: 820px; margin: 0 auto; padding: 40px 16px; }
+    .admin-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
+    .admin-head a { display: flex; align-items: center; gap: 10px; font-weight: 800; }
+    .login { display: grid; gap: 12px; max-width: 420px; }
+    .msg-list { display: grid; gap: 16px; }
+    .msg { display: grid; gap: 8px; }
+    .msg-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .msg-from { font-weight: 700; }
+    .msg-from a { color: var(--accent); font-weight: 500; overflow-wrap: anywhere; }
+    .msg-date { color: var(--muted); font-size: 0.85rem; }
+    .msg-body { white-space: pre-wrap; overflow-wrap: anywhere; }
+    .msg-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn.small { padding: 8px 16px; font-size: 0.9rem; }
+    .btn.danger { background: transparent; color: #e5484d; border-color: #e5484d; }
+    .count { color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="admin">
+    <div class="admin-head">
+      <a href="/"><img src="logo.svg" alt="" class="logo-mark">Messages</a>
+      <button id="logout" class="btn ghost small" hidden>Log out</button>
+    </div>
+
+    <form id="login" class="login">
+      <label>Admin password<input id="key" type="password" autocomplete="current-password"></label>
+      <button class="btn" type="submit">Show messages</button>
+      <p id="login-status" class="status err"></p>
+    </form>
+
+    <section id="inbox" hidden>
+      <p id="count" class="count"></p>
+      <div id="list" class="msg-list"></div>
+    </section>
+  </main>
+
+  <script>
+    const $ = (s) => document.querySelector(s);
+    let key = "";
+    try { key = sessionStorage.getItem("adminKey") || ""; } catch {}
+
+    function el(tag, attrs = {}, text) {
+      const n = document.createElement(tag);
+      Object.entries(attrs).forEach(([k, v]) => n.setAttribute(k, v));
+      if (text) n.textContent = text;
+      return n;
+    }
+
+    try { if (localStorage.getItem("theme")) document.documentElement.dataset.theme = localStorage.getItem("theme"); } catch {}
+
+    async function load() {
+      const res = await fetch("/api/messages", { headers: { "x-admin-key": key } });
+      if (res.status === 401) {
+        key = "";
+        try { sessionStorage.removeItem("adminKey"); } catch {}
+        $("#login").hidden = false;
+        $("#inbox").hidden = true;
+        $("#logout").hidden = true;
+        $("#login-status").textContent = "Wrong password.";
+        return;
+      }
+      const messages = await res.json();
+      try { sessionStorage.setItem("adminKey", key); } catch {}
+      $("#login").hidden = true;
+      $("#inbox").hidden = false;
+      $("#logout").hidden = false;
+      $("#count").textContent = messages.length ? `${messages.length} message${messages.length > 1 ? "s" : ""}` : "No messages yet.";
+
+      const list = $("#list");
+      list.innerHTML = "";
+      messages.forEach((m) => {
+        const card = el("article", { class: "card msg" });
+        const top = el("div", { class: "msg-top" });
+        const from = el("div", { class: "msg-from" }, m.name + " ");
+        from.append(el("a", { href: `mailto:${m.email}` }, m.email));
+        top.append(from, el("span", { class: "msg-date" }, new Date(m.createdAt).toLocaleString()));
+        const actions = el("div", { class: "msg-actions" });
+        const reply = el("a", { class: "btn small", href: `mailto:${m.email}?subject=${encodeURIComponent("Re: your message")}` }, "Reply");
+        const del = el("button", { class: "btn small danger", type: "button" }, "Delete");
+        del.addEventListener("click", async () => {
+          if (!confirm("Delete this message?")) return;
+          await fetch(`/api/messages/${m.id}`, { method: "DELETE", headers: { "x-admin-key": key } });
+          load();
+        });
+        actions.append(reply, del);
+        card.append(top, el("p", { class: "msg-body" }, m.message), actions);
+        list.append(card);
+      });
+    }
+
+    $("#login").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const value = $("#key").value.trim();
+      if (!value) { $("#login-status").textContent = "Enter your password first."; return; }
+      $("#login-status").textContent = "";
+      key = value;
+      load();
+    });
+
+    $("#key").addEventListener("input", () => ($("#login-status").textContent = ""));
+
+    $("#logout").addEventListener("click", () => {
+      key = "";
+      try { sessionStorage.removeItem("adminKey"); } catch {}
+      location.reload();
+    });
+
+    if (key) load();
+  </script>
+</body>
+</html>

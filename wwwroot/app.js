@@ -26,6 +26,19 @@ async function loadProfile() {
   $("#location").textContent = `Based in ${p.location} · ${p.email}`;
   $("#footer-name").textContent = p.name;
 
+  const links = $("#contact-links");
+  const addLink = (href, label, value) => {
+    const a = el("a", { href, class: "card contact-link", target: href.startsWith("http") ? "_blank" : "_self", rel: "noopener" });
+    a.append(el("span", { class: "fact-label" }, label), el("strong", {}, value));
+    links.append(a);
+  };
+  if (p.phone) {
+    const intl = "20" + p.phone.replace(/^0/, "");
+    addLink(`tel:+${intl}`, "Phone", p.phone);
+    addLink(`https://wa.me/${intl}`, "WhatsApp", "Chat with me");
+  }
+  if (p.email) addLink(`mailto:${p.email}`, "Email", p.email);
+
   const social = $("#social");
   Object.entries(p.social || {}).forEach(([name, url]) => {
     social.append(el("a", { href: url, target: "_blank", rel: "noopener" }, name[0].toUpperCase() + name.slice(1)));

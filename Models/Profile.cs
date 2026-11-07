@@ -9,6 +9,7 @@ public record Profile
     public List<Fact> Facts { get; init; } = [];
     public string Location { get; init; } = "";
     public string Email { get; init; } = "";
+    public string Phone { get; init; } = "";
     public string Cv { get; init; } = "";
     public Dictionary<string, string> Social { get; init; } = [];
     public List<SkillGroup> Skills { get; init; } = [];

@@ -54,6 +54,19 @@ public partial class MessageService(IWebHostEnvironment env, JsonSerializerOptio
         finally { _lock.Release(); }
     }
 
+    public async Task<bool> DeleteAsync(long id)
+    {
+        await _lock.WaitAsync();
+        try
+        {
+            var messages = await ReadAsync();
+            var removed = messages.RemoveAll(m => m.Id == id) > 0;
+            if (removed) await File.WriteAllTextAsync(_file, JsonSerializer.Serialize(messages, json));
+            return removed;
+        }
+        finally { _lock.Release(); }
+    }
+
     private async Task<List<ContactMessage>> ReadAsync()
     {
         if (!File.Exists(_file)) return [];
