@@ -1,0 +1,76 @@
+{
+  "name": "Ahmed Yasser",
+  "role": "Frontend Developer",
+  "tagline": "I build responsive, modern web interfaces with React.js, with clean design, high performance and a smooth user experience.",
+  "about": "Frontend Developer with strong knowledge of modern web development technologies. Experienced in building responsive user interfaces using HTML, CSS, JavaScript, and React.js. Passionate about developing modern web applications with clean design, high performance, and strong user experience. Now expanding into back-end development with Node.js and Express.",
+  "location": "Egypt",
+  "email": "ahmed555yasser888@gmail.com",
+  "cv": "Ahmed_yasser_Cv.pdf",
+  "social": {
+    "github": "https://github.com/ahmed-0yasser",
+    "linkedin": "https://linkedin.com/in/ahmed-yasser-075949263"
+  },
+  "skills": [
+    { "group": "Front-End", "items": ["HTML5", "CSS3", "JavaScript", "React.js", "Bootstrap", "Responsive Design"] },
+    { "group": "Back-End", "items": ["Node.js", "Express", "REST APIs", "JSON"] },
+    { "group": "Tools", "items": ["Git", "GitHub", "Figma", "VS Code"] },
+    { "group": "Soft Skills", "items": ["Communication", "Problem Solving", "Teamwork", "Leadership", "Time Management", "Adaptability"] }
+  ],
+  "experience": [
+    {
+      "title": "Frontend Development Trainee",
+      "org": "EraaSoft",
+      "points": [
+        "Completed intensive Frontend Development training focused on modern web technologies.",
+        "Built multiple real-world projects using HTML, CSS, JavaScript, and React.js.",
+        "Worked within a collaborative team of 6 Frontend Developers.",
+        "Acted as Team Leader during project development and task coordination.",
+        "Practiced collaborative development using Git and GitHub."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "title": "Bachelor's Degree in Management Information Systems",
+      "org": "2021 - 2024 · Grade: Very Good",
+      "points": [
+        "Graduation project: a tourism resort website to explore resort services, rooms and booking information."
+      ]
+    }
+  ],
+  "languages": ["Arabic: Native", "English: Intermediate"],
+  "projects": [
+    {
+      "title": "Farsh E-Commerce Website",
+      "description": "A responsive e-commerce web app for browsing furniture products, built with reusable React components and modern product cards that work on mobile, tablet and desktop.",
+      "tags": ["React.js", "JavaScript", "Bootstrap"],
+      "category": "frontend",
+      "live": "",
+      "code": ""
+    },
+    {
+      "title": "Movies Website",
+      "description": "A movie browsing app that pulls live data from an external movie API and shows movie lists and movie details.",
+      "tags": ["React.js", "API Integration"],
+      "category": "frontend",
+      "live": "",
+      "code": ""
+    },
+    {
+      "title": "Tourism Resort Website",
+      "description": "Graduation project: a modern responsive website to explore resort services, rooms and booking information.",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "category": "frontend",
+      "live": "",
+      "code": ""
+    },
+    {
+      "title": "Portfolio Website + API",
+      "description": "This site. A Node.js and Express back-end serves the profile and projects as a REST API and saves contact messages with validation and rate limiting.",
+      "tags": ["Node.js", "Express", "REST API"],
+      "category": "backend",
+      "live": "",
+      "code": ""
+    }
+  ]
+}

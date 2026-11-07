@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a href="#home" class="logo" id="logo">Portfolio</a>
+    <nav id="menu">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button id="theme" class="icon-btn" aria-label="Toggle theme">&#9790;</button>
+      <button id="burger" class="icon-btn burger" aria-label="Menu">&#9776;</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-photo"><div class="photo-inner"><img id="photo" alt="" src="ahmed.jpg"></div></div>
+      <div class="hero-text">
+      <p class="hello">Hi, I'm</p>
+      <h1 id="name">...</h1>
+      <h2 id="role" class="accent"></h2>
+      <p id="tagline" class="muted"></p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn">View my work</a>
+        <a href="#contact" class="btn ghost">Contact me</a>
+        <a id="cv-btn" class="btn ghost" download hidden>Download CV</a>
+      </div>
+      <div id="social" class="social"></div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal">
+      <h3 class="title">About me</h3>
+      <p id="about-text" class="lead"></p>
+      <p id="location" class="muted"></p>
+      <p id="languages" class="muted"></p>
+    </section>
+
+    <section id="experience" class="reveal">
+      <h3 class="title">Experience &amp; Education</h3>
+      <div id="timeline" class="timeline"></div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <h3 class="title">Skills</h3>
+      <div id="skills-grid" class="skills"></div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <h3 class="title">Projects</h3>
+      <div class="filters" id="filters">
+        <button class="chip active" data-cat="">All</button>
+        <button class="chip" data-cat="frontend">Front-End</button>
+        <button class="chip" data-cat="backend">Back-End</button>
+      </div>
+      <div id="projects-grid" class="grid"></div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <h3 class="title">Contact</h3>
+      <p class="muted">Have a project or a job offer? Send me a message.</p>
+      <form id="contact-form" novalidate>
+        <label>Name<input name="name" autocomplete="name"><small data-err="name"></small></label>
+        <label>Email<input name="email" type="email" autocomplete="email"><small data-err="email"></small></label>
+        <label>Message<textarea name="message" rows="5"></textarea><small data-err="message"></small></label>
+        <button class="btn" type="submit">Send message</button>
+        <p id="form-status" class="status"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> <span id="footer-name"></span>. Built with HTML, CSS, JS and Node.js.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
