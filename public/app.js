@@ -16,7 +16,14 @@ async function loadProfile() {
   $("#photo").alt = p.name;
   $("#role").textContent = p.role;
   $("#tagline").textContent = p.tagline;
-  $("#about-text").textContent = p.about;
+  const about = $("#about-text");
+  [].concat(p.about || []).forEach((para) => about.append(el("p", {}, para)));
+  const facts = $("#facts");
+  (p.facts || []).forEach((f) => {
+    const box = el("div", { class: "card fact" });
+    box.append(el("span", { class: "fact-label" }, f.label), el("strong", {}, f.value));
+    facts.append(box);
+  });
   $("#location").textContent = `Based in ${p.location} · ${p.email}`;
   $("#footer-name").textContent = p.name;
 
@@ -61,6 +68,11 @@ async function loadProjects(category = "") {
   projects.forEach((p) => {
     const card = el("article", { class: "card project" });
     card.append(el("h4", {}, p.title), el("p", {}, p.description));
+    if (p.features && p.features.length) {
+      const ul = el("ul", { class: "features" });
+      p.features.forEach((f) => ul.append(el("li", {}, f)));
+      card.append(ul);
+    }
     const tags = el("div", { class: "tags" });
     p.tags.forEach((t) => tags.append(el("span", { class: "tag" }, t)));
     const links = el("div", { class: "links" });

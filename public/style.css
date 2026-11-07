@@ -94,7 +94,10 @@ section { padding: 90px 0; }
   content: ""; display: block; width: 50px; height: 4px; border-radius: 2px; margin-top: 8px;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
 }
-.lead { font-size: 1.15rem; max-width: 760px; margin-bottom: 10px; }
+.lead { font-size: 1.1rem; max-width: 800px; margin-bottom: 24px; display: grid; gap: 14px; }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.fact { display: grid; gap: 4px; padding: 18px 20px; }
+.fact-label { color: var(--accent); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
 
 .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 .card {
@@ -128,7 +131,8 @@ section { padding: 90px 0; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 22px; }
 .project { display: flex; flex-direction: column; gap: 12px; transition: transform 0.25s; }
 .project:hover { transform: translateY(-6px); }
-.project p { color: var(--muted); flex: 1; }
+.project p { color: var(--muted); }
+.features { padding-left: 18px; color: var(--muted); font-size: 0.95rem; display: grid; gap: 4px; flex: 1; }
 .project .links { display: flex; gap: 16px; font-weight: 600; color: var(--accent); }
 .project .links a:hover { text-decoration: underline; }
 

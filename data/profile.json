@@ -2,7 +2,29 @@
   "name": "Ahmed Yasser",
   "role": "Frontend Developer",
   "tagline": "I build responsive, modern web interfaces with React.js, with clean design, high performance and a smooth user experience.",
-  "about": "Frontend Developer with strong knowledge of modern web development technologies. Experienced in building responsive user interfaces using HTML, CSS, JavaScript, and React.js. Passionate about developing modern web applications with clean design, high performance, and strong user experience. Now expanding into back-end development with Node.js and Express.",
+  "about": [
+    "I'm Ahmed, a Frontend Developer from Egypt with strong knowledge of modern web development technologies. I build responsive user interfaces with HTML, CSS, JavaScript and React.js, and I care a lot about clean design, high performance and a smooth user experience.",
+    "I graduated in Management Information Systems in 2024 with a Very Good grade, then joined an intensive Frontend Development training at EraaSoft. There I built multiple real-world projects and worked in a team of 6 developers, where I acted as Team Leader, organizing tasks and coordinating the work with Git and GitHub.",
+    "Today I'm expanding into back-end development with Node.js and Express. This website is an example: its front-end and its API are both built by me. I'm looking for a Frontend or Junior Full-Stack role where I can keep learning and build products people enjoy using."
+  ],
+  "facts": [
+    {
+      "label": "Experience",
+      "value": "Frontend Trainee at EraaSoft"
+    },
+    {
+      "label": "Education",
+      "value": "B.Sc. MIS, 2021 - 2024"
+    },
+    {
+      "label": "Team role",
+      "value": "Team Leader of 6 devs"
+    },
+    {
+      "label": "Military service",
+      "value": "Completed"
+    }
+  ],
   "location": "Egypt",
   "email": "ahmed555yasser888@gmail.com",
   "cv": "Ahmed_yasser_Cv.pdf",
@@ -11,10 +33,46 @@
     "linkedin": "https://linkedin.com/in/ahmed-yasser-075949263"
   },
   "skills": [
-    { "group": "Front-End", "items": ["HTML5", "CSS3", "JavaScript", "React.js", "Bootstrap", "Responsive Design"] },
-    { "group": "Back-End", "items": ["Node.js", "Express", "REST APIs", "JSON"] },
-    { "group": "Tools", "items": ["Git", "GitHub", "Figma", "VS Code"] },
-    { "group": "Soft Skills", "items": ["Communication", "Problem Solving", "Teamwork", "Leadership", "Time Management", "Adaptability"] }
+    {
+      "group": "Front-End",
+      "items": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "React.js",
+        "Bootstrap",
+        "Responsive Design"
+      ]
+    },
+    {
+      "group": "Back-End",
+      "items": [
+        "Node.js",
+        "Express",
+        "REST APIs",
+        "JSON"
+      ]
+    },
+    {
+      "group": "Tools",
+      "items": [
+        "Git",
+        "GitHub",
+        "Figma",
+        "VS Code"
+      ]
+    },
+    {
+      "group": "Soft Skills",
+      "items": [
+        "Communication",
+        "Problem Solving",
+        "Teamwork",
+        "Leadership",
+        "Time Management",
+        "Adaptability"
+      ]
+    }
   ],
   "experience": [
     {
@@ -38,39 +96,78 @@
       ]
     }
   ],
-  "languages": ["Arabic: Native", "English: Intermediate"],
+  "languages": [
+    "Arabic: Native",
+    "English: Intermediate"
+  ],
   "projects": [
     {
       "title": "Farsh E-Commerce Website",
-      "description": "A responsive e-commerce web app for browsing furniture products, built with reusable React components and modern product cards that work on mobile, tablet and desktop.",
-      "tags": ["React.js", "JavaScript", "Bootstrap"],
+      "description": "A responsive e-commerce web application for browsing furniture products.",
+      "features": [
+        "Reusable React components to organize and structure the project",
+        "Modern product cards and product display sections",
+        "Responsive layout for mobile, tablet and desktop"
+      ],
+      "tags": [
+        "React.js",
+        "JavaScript",
+        "Bootstrap"
+      ],
       "category": "frontend",
       "live": "",
-      "code": ""
+      "code": "https://github.com/ahmed-0yasser/farsh"
     },
     {
       "title": "Movies Website",
-      "description": "A movie browsing app that pulls live data from an external movie API and shows movie lists and movie details.",
-      "tags": ["React.js", "API Integration"],
+      "description": "A movie browsing web application built with React.js.",
+      "features": [
+        "Integrates an external movie API to load movie data dynamically",
+        "Components for movie lists and movie details",
+        "Organized content structure for a better user experience"
+      ],
+      "tags": [
+        "React.js",
+        "API Integration"
+      ],
       "category": "frontend",
       "live": "",
       "code": ""
     },
     {
       "title": "Tourism Resort Website",
-      "description": "Graduation project: a modern responsive website to explore resort services, rooms and booking information.",
-      "tags": ["HTML", "CSS", "JavaScript"],
+      "description": "My graduation project: a website that improves the digital experience for tourism services.",
+      "features": [
+        "Lets users explore resort services and rooms",
+        "Shows booking information in a clear way",
+        "Modern, responsive interface"
+      ],
+      "tags": [
+        "Graduation Project",
+        "Responsive Design"
+      ],
       "category": "frontend",
       "live": "",
       "code": ""
     },
     {
       "title": "Portfolio Website + API",
-      "description": "This site. A Node.js and Express back-end serves the profile and projects as a REST API and saves contact messages with validation and rate limiting.",
-      "tags": ["Node.js", "Express", "REST API"],
+      "description": "This website. Front-end and back-end are both built by me.",
+      "features": [
+        "Express REST API that serves the profile and projects",
+        "Contact form that validates and saves messages",
+        "Rate limiting and a protected endpoint to read messages",
+        "Dark / light mode and project filters"
+      ],
+      "tags": [
+        "Node.js",
+        "Express",
+        "REST API",
+        "JavaScript"
+      ],
       "category": "backend",
       "live": "",
-      "code": ""
+      "code": "https://github.com/ahmed-0yasser/portfolio"
     }
   ]
 }
